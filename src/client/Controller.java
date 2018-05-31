@@ -15,7 +15,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.util.Collections;
 import java.util.List;
 
 public class Controller {
@@ -95,7 +94,7 @@ public class Controller {
         String selectedItemName = listView.getSelectionModel().getSelectedItem();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialFileName(selectedItemName);
-        if (!selectedItemName.contains("/")) {
+        if (selectedItemName != null && !selectedItemName.contains("/")) {
             File file = fileChooser.showSaveDialog(downloadFileButton.getScene().getWindow());
             bottomTextField.setText("Downloading..");
             if (file != null && ftpOperations.getFile(selectedItemName, file)) {
@@ -132,6 +131,10 @@ public class Controller {
     private void onListViewEnterPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             navigateTo();
+        } else if(keyEvent.getCode() == KeyCode.LEFT) {
+            downloadFile(null);
+        } else if(keyEvent.getCode() == KeyCode.RIGHT) {
+            uploadFile(null);
         }
     }
 

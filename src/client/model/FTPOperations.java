@@ -2,7 +2,10 @@ package client.model;
 
 import server.model.ServerInterface;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.rmi.NotBoundException;
@@ -58,7 +61,7 @@ public class FTPOperations {
     public boolean getFile(String fileName, File file) {
         //convert array of bytes into file
         int chunkSize = 10 * 1024 * 1024;
-        int fileSize = 0;
+        int fileSize;
         try {
             fileSize = serverInterface.getFileSize(serverPath + "/" + fileName);
         } catch (RemoteException e) {
