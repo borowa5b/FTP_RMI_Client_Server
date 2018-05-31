@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="server.Controller">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Server">
+                    <items>
+                        <MenuItem fx:id="startServerMenuItem" mnemonicParsing="false" onAction="#startServer" text="Start"/>
+                        <MenuItem mnemonicParsing="false" onAction="#closeServer" text="Close"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <TextArea fx:id="serverLogArea" editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-padding: 25px;"
+                  wrapText="true" BorderPane.alignment="CENTER"/>
+    </center>
+</BorderPane>

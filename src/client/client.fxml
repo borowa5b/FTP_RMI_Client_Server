@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="client.Controller">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Client">
+                    <items>
+                        <MenuItem fx:id="connectMenuItem" mnemonicParsing="false" onAction="#connectToServer"
+                                  text="Connect to server"/>
+                        <MenuItem mnemonicParsing="false" onAction="#close" text="Close"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <bottom>
+        <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-pref-height: 10px;" BorderPane.alignment="CENTER">
+            <items>
+                <TextField fx:id="bottomTextField" editable="false" style="-fx-pref-width: 585;"/>
+            </items>
+        </ToolBar>
+    </bottom>
+    <center>
+        <BorderPane fx:id="mainPanel" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <center>
+                <ListView fx:id="listView" onKeyReleased="#onListViewEnterPressed" onMouseReleased="#onListViewClicked"
+                          prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
+            </center>
+            <bottom>
+                <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <items>
+                        <Button fx:id="refreshButton" disable="true" mnemonicParsing="false"
+                                onAction="#refreshFilesList" onMouseDragReleased="#refreshFilesList" text="Refresh"/>
+                        <Button fx:id="uploadFileButton" disable="true" mnemonicParsing="false" onAction="#uploadFile"
+                                text="Upload file"/>
+                        <Button fx:id="downloadFileButton" disable="true" mnemonicParsing="false"
+                                onAction="#downloadFile" text="Download selected"/>
+                        <Button fx:id="deleteButton" disable="true" mnemonicParsing="false" onAction="#deleteFile"
+                                text="Delete"/>
+                    </items>
+                </ToolBar>
+            </bottom>
+        </BorderPane>
+    </center>
+</BorderPane>
