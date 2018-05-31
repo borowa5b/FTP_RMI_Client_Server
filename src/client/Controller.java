@@ -94,7 +94,7 @@ public class Controller {
         String selectedItemName = listView.getSelectionModel().getSelectedItem();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialFileName(selectedItemName);
-        if (selectedItemName != null && !selectedItemName.contains("/")) {
+        if (selectedItemName != null && !selectedItemName.contains("/") && !selectedItemName.equals("..")) {
             File file = fileChooser.showSaveDialog(downloadFileButton.getScene().getWindow());
             bottomTextField.setText("Downloading..");
             if (file != null && ftpOperations.getFile(selectedItemName, file)) {
